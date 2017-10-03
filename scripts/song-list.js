@@ -1,5 +1,5 @@
 $( document ).ready(function() { //set program state to ready, prep function call.
-   album.songs.forEach( (song, index) => { //foreach song and index
+   album.songs.forEach( (song, index) => { //foreach song and index create a button with
      song.element = $(`
        <tr>
          <td>
@@ -16,6 +16,7 @@ $( document ).ready(function() { //set program state to ready, prep function cal
 
      song.element.click( event => {
        player.playPause(song);
+       $('button#play-pause').attr('playState', player.playState);
      });
 
      $('#song-list').append(song.element);
