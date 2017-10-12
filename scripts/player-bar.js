@@ -36,7 +36,7 @@ $( document ).ready(function() { //set ready state
         const percent = (currentTime / duration) * 100;
 
         $('#time-control .total-time').text(duration);
-        $('#time-control .current-time').text( prettyTime(currentTime) );
+        $('#time-control .current-time').text(currentTime);
         $('#time-control input').val(percent);
    }, 1000);
 });

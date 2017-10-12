@@ -7,11 +7,11 @@ class Player {
   }
 
   getDuration() {
-    return this.soundObject.getDuration();
+    return this.prettyTime(this.soundObject.getDuration());
   }
 
   getTime() {
-    return this.soundObject.getTime();
+    return this.prettyTime(this.soundObject.getTime());
   }
 
   playPause (song = this.currentlyPlaying) {
@@ -51,12 +51,13 @@ class Player {
   prettyTime(timeInSeconds) {
     let convertedTime = '';
     let minutes = Math.floor(timeInSeconds / 60);
-    let seconds = timeInSeconds - minutes * 60;
+    let seconds = Math.floor(timeInSeconds - minutes * 60);
       if (timeInSeconds >= 0) {
         convertedTime += minutes + ":" + (seconds < 10 ? "0" : "");
         convertedTime += seconds;
       }
-     return this.convertedTime;
+     return convertedTime;
   }
+
 }
 const player = new Player();
